@@ -72,7 +72,7 @@
         $conn = new mysqli($servername, $username, $password,"mydb");  
         $user=$_REQUEST['username'];
         //echo $user."<br>";
-        $sql="select username,name,email,gender from mytable where username=".$user;
+        $sql="select username,name,email,gender from mytable where username=".$_session[$user];
         //echo $sql;
         $out=$conn->query($sql);
         $sql = "UPDATE mytable SET win=".'Doe' WHERE id=2";

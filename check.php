@@ -23,7 +23,7 @@ session_start();
             }
             
     if (password_verify($pwd, $output)){
-      $_SESSION['useractive']=$user;
+      //$_SESSION['useractive']=$user;
         header('Location: main.html');
           exit;
     }
