@@ -23,7 +23,13 @@ session_start();
             }
             
     if (password_verify($pwd, $output)){
-      //$_SESSION['useractive']=$user;
+      $_SESSION['useractive']=htmlspecialchars($_REQUEST['username']);
+      $_SESSION['win']=0;
+      $_SESSION['loose']=0;
+      $_SESSION['tie']=0;
+      $_SESSION['total']=0;
+
+
         header('Location: main.html');
           exit;
     }

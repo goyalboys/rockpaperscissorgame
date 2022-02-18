@@ -30,17 +30,18 @@
     $conn->close();
     $conn = new mysqli($servername, $username, $password,"mydb"); 
      $sql = "CREATE TABLE Mytable (
-        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(30) NOT NULL,
         username VARCHAR(30) NOT NULL PRIMARY KEY,
         email VARCHAR(50),
         password varchar(70),
         gender varchar(10),
-        total varchar(10),
-        win varchar(10)
+        total varchar(10) DEFAULT 0,
+        win varchar(10) DEFAULT 0,
+        tie varchar(10) DEFAULT 0,
+        loose varchar(10) DEFAULT 0
         )";
     $conn->query($sql);
-    //echo $conn->error;
+    echo $conn->error;
     /*
         if ($conn->query($sql) === TRUE) {
             echo "Table created successfully<br>";
