@@ -7,42 +7,54 @@
     <title>Login</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
-<script>
-
-</script>
 </head>
 <body>
     <div class="navbar">
         <ul>
-            <li><a class="active" href="login.html">Rockpprsscr</a></li>
-            <li style="float:right"><a href="index.html">Register</a></li>
-          </ul>
+            <li>
+                <a class="active" href="login.html">
+                    Rockpprsscr
+                </a>
+            </li>
+            <li style="float:right">
+                <a href="index.html">
+                    Register
+                </a>
+            </li>
+        </ul>
     </div>
     <div class="arrange">
-    <h2 id="page"> Login</h2>
+        <h2 id="page"> 
+            Login
+        </h2>
     
-    <form name="myForm" method="post"  onsubmit="return validateforml()" action='check.php'>
-        <span id="user">Username:<input type="text" name="username"  placeholder="Enter username"></span>
-        <br>
-        <br>
-        <span id ="pswd">Password:<input type="password" name="pswd" placeholder="Enter password"><br></span>
-        
-        <input type="submit">
-        <div>
+        <form name="myForm" method="post"  onsubmit="return validateforml()" action='check.php'>
+            <span id="user">
+                Username:
+                <input type="text" name="username"  placeholder="Enter username">
+            </span>
+            <br>
+            <br>
+            <span id ="pswd">
+                Password:
+                <input type="password" name="pswd" placeholder="Enter password">
+                <br>
+            </span>
+            <input type="submit">
+            <div>
+                <h6 style="text-align: left ;">
+                    <input type="checkbox"  name="remember">
+                     Remember me
+                </h6>
+                <h6 style="text-align: right;">
+                    forgot password
+                </h6>
+            </div>
+            <br>
+            <span id="warning">
 
-            <h6 style="text-align: left ;"><input type="checkbox" checked="checked" name="remember"> Remember me</h6>
-            <h6 style="text-align: right;">forgot password</h6>
-        </div>
-        
-        <br>
-        <span id="warning"></span>
-    </form>
-
-
-    <!--<button type="button" onclick="myFunction()">Try it</button>
-        document.getElementById("page").innerHTML="Registeration";} -->
-        
-        
-</div>
+            </span>
+        </form>  
+    </div>
 </body>
 </html>

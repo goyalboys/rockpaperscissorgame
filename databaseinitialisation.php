@@ -8,48 +8,28 @@
 </head>
 <body>
     <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-
-
-    # creating with sql server and conn is an object
-    $conn = new mysqli($servername, $username, $password);
-
-    # creating database in mysql by myDB name
-    $sql = "CREATE DATABASE mydb";
-    $conn->query($sql);
-    // checking query is excecuting or not 
-    /*
-    if ($conn->query($sql) === TRUE) {
-    echo "Database created successfully<br>";
-    } else {
-    echo "Error creating database: " . $conn->error;
-    }
-    */
-    $conn->close();
-    $conn = new mysqli($servername, $username, $password,"mydb"); 
-     $sql = "CREATE TABLE Mytable (
-        name VARCHAR(30) NOT NULL,
-        username VARCHAR(30) NOT NULL PRIMARY KEY,
-        email VARCHAR(50),
-        password varchar(70),
-        gender varchar(10),
-        total varchar(10) DEFAULT 0,
-        win varchar(10) DEFAULT 0,
-        tie varchar(10) DEFAULT 0,
-        loose varchar(10) DEFAULT 0
-        )";
-    $conn->query($sql);
-    echo $conn->error;
-    /*
-        if ($conn->query($sql) === TRUE) {
-            echo "Table created successfully<br>";
-            } else {
-            echo "Error creating database: " . $conn->error;
-            }
-    */
-            $conn->close();
-        ?>
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $conn = new mysqli($servername, $username, $password);
+        $sql = "CREATE DATABASE mydb";
+        $conn->query($sql);
+        $conn = new mysqli($servername, $username, $password,"mydb"); 
+        $sql = "CREATE TABLE Mytable (
+            name VARCHAR(30) NOT NULL,
+            username VARCHAR(30) NOT NULL PRIMARY KEY,
+            email VARCHAR(50),
+            password varchar(70),
+            gender varchar(10),
+            total varchar(10) DEFAULT 0,
+            win varchar(10) DEFAULT 0,
+            tie varchar(10) DEFAULT 0,
+            loose varchar(10) DEFAULT 0,
+            active TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )";
+        $conn->query($sql);
+        echo $conn->error;
+        $conn->close();
+    ?>
 </body>
 </html>

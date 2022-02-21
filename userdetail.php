@@ -1,35 +1,31 @@
 <?php
-//include_once 'user.php';
-//include_once 'databaseinitialisation.php';
-$servername = "localhost";
-$username = "root";
-$password = "";
-// Create connection with mysql server
-$conn = new mysqli($servername, $username, $password,"mydb");  
-$user=$_REQUEST['username'];
-//echo $user."<br>";
-$sql="select username,name,email,gender,loose,win,tie,total from mytable where username=".$user;
-//echo $sql;
-$out=$conn->query($sql);
-$name1='';
-$user1='';
-$email1='';
-$gender1='';
-$loose1='';
-$tie1='';
-$total1='';
-$win1='';
-while($row = $out->fetch_assoc()) 
-{
-     $user1=$row['username'];
-    $name1 =$row['name'];
-    $email1=$row['email'];
-    $gender1= $row['gender'];
-    $loose1=$row['loose'];
-    $win1=$row['win'];
-    $total1=$row['total'];
-    $tie1=$row['tie'];
-}?>
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $conn = new mysqli($servername, $username, $password,"mydb");  
+    $user=$_REQUEST['username'];
+    $sql="select username,name,email,gender,loose,win,tie,total from mytable where username=".$user;
+    $out=$conn->query($sql);
+    $name1='';
+    $user1='';
+    $email1='';
+    $gender1='';
+    $loose1='';
+    $tie1='';
+    $total1='';
+    $win1='';
+    while($row = $out->fetch_assoc()) 
+    {
+        $user1=$row['username'];
+        $name1 =$row['name'];
+        $email1=$row['email'];
+        $gender1= $row['gender'];
+        $loose1=$row['loose'];
+        $win1=$row['win'];
+        $total1=$row['total'];
+        $tie1=$row['tie'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,67 +36,52 @@ while($row = $out->fetch_assoc())
     <title>Document</title>
 </head>
 <body>
-<div class="navbar">
+    <div class="navbar">
         <ul>
             <li><a class="active" href="main.html">Rockpprsscr</a></li>
             <li style="float:right"><a href="login.html">logout</a></li>
-          </ul>
+        </ul>
     </div>
     <div class="arrange">
-    <div style="align">
-        <h1 style="text-align=centre;"> User Profile</h1>
-        <div>
-            <div>
-                <div class="entity">
+        <div style="text-align: justify; text-justify: inter-word;">
+            <h1 style="text-align=centre;"> User Profile</h1>
+            <div class="entity">
                 UserName:
-                    <?php echo $user1. "<br>"?>
-                </div> 
-                <div class="entity">
+                <?php echo $user1. "<br>"?>
+            </div> 
+            <div class="entity">
                 Name:
-                    <?php echo $name1;?>
-            </div>
-            </div>
-
-            <div>
+                <?php echo $name1;?>
             <div class="entity">
                 Email:
-                    <?php echo $email1."<br>"?>
+                <?php echo $email1."<br>"?>
             </div>
             <div class="entity">
-                    Gender:
-                    <?php echo $gender1;?>
-            </div>
-
-            <div class="entity">
-                    Match Played:
-                    <?php echo $total1;?>
-            </div>
-
-            <div class="entity">
-                    Match Won:
-                    <?php echo $win1;?>
+                Gender:
+                <?php echo $gender1;?>
             </div>
             <div class="entity">
-                    Match loose:
-                    <?php echo $loose1;?>
+                Match Played:
+                <?php echo $total1;?>
             </div>
             <div class="entity">
-                    Match Tie:
-                    <?php echo $tie1;?>
+                Match Won:
+                <?php echo $win1;?>
             </div>
-
-
+            <div class="entity">
+                Match loose:
+                <?php echo $loose1;?>
+            </div>
+            <div class="entity">
+                Match Tie:
+                <?php echo $tie1;?>
             </div>
         </div>
-        
+        <a href="main.html" style="text-decoration: none;">
+        <button type=button style="display: flex;justify-content: center;align-items: center;border: 3px solid green;"> 
+        Go Back
+        </button></a>     
     </div>
-    <a href="main.html" style="text-decoration: none;">
-    <button type=button style="display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 3px solid green;"> Go Back </button></a>
-</div>
-  
 </body>
 </html>
 
