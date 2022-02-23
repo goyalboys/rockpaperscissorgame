@@ -40,6 +40,7 @@ function validateforml()
         return false;
     }
 }
+
 $(document).ready(function()
 {
     $.ajax({
@@ -47,11 +48,11 @@ $(document).ready(function()
         method:"post",
         data:{'1':"vineetgoyalhdfbvfbvhbfvjbdjvbhdvbjhfbvhjd"},
         success:function(data){
-          const myArray = data.split("-");
-       console.log(data);
-        $('#new').html(data);//for class use.
-         //console.log(data);
-        // $('#usernameshow').html("vineet");
+
+            const myArray = data.split("-@");
+            //console.log(data);
+            $('#new').html(myArray[0]);//for class use.
+            $('#usernameshow').html(myArray[1]);
         }
     })
 

@@ -69,15 +69,17 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $conn = new mysqli($servername, $username, $password,"mydb");  
+    $conn = new mysqli($servername, $username, $password,"training_game");  
     echo $_SESSION['total'].'-'. $_SESSION['tie'].'-'. $_SESSION['win'].'-'.$_SESSION['loose'];
-    $sql="select total,win,loose,tie from mytable where username='$usern'";
+    $sql="select total,win,loose,tie from rockpaperscissordashboard where username='$usern'";
     $out=$conn->query($sql);
+    var_dump($out);
     echo $conn->error;
     date_default_timezone_set('Asia/Calcutta'); 
     $timestamp = date('Y-m-d H:i:s');
     while($row = $out->fetch_assoc()) 
     {
+        echo $row["win"]."<br> hello";
         $wino=$row["win"];
         $totalo=$row["total"];
         $tieo=$row['tie'];
@@ -86,7 +88,9 @@
         $totalo+=$total;
         $tieo+=$tie;
         $looseo+=$loose;
-        $sql = "UPDATE mytable SET win='$wino', total='$totalo',loose='$looseo',tie='$tieo',active='$timestamp' WHERE username='$usern'";
+        $sql = "UPDATE rockpaperscissordashboard SET win='$wino', total='$totalo',loose='$looseo',tie='$tieo' WHERE username='$usern'";
+        $conn->query($sql);
+        $sql = "UPDATE user_details SET active='$timestamp' WHERE username='$usern'";
         $conn->query($sql);
         echo $conn->error;   
     }         

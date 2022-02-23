@@ -2,10 +2,11 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $conn = new mysqli($servername, $username, $password,"mydb");  
+    $conn = new mysqli($servername, $username, $password,"training_game");  
     $user=$_REQUEST['username'];
-    $sql="select username,name,email,gender,loose,win,tie,total from mytable where username=".$user;
+    $sql="select username,name,email,gender from user_details where username=".$user;
     $out=$conn->query($sql);
+    echo $conn->error;
     $name1='';
     $user1='';
     $email1='';
@@ -20,6 +21,11 @@
         $name1 =$row['name'];
         $email1=$row['email'];
         $gender1= $row['gender'];
+    }
+    $sql="select  loose,win,tie,total from rockpaperscissordashboard where username=".$user;
+    $out=$conn->query($sql);
+    while($row = $out->fetch_assoc()) 
+    {
         $loose1=$row['loose'];
         $win1=$row['win'];
         $total1=$row['total'];
@@ -36,47 +42,49 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="navbar">
+    <div class="navigation-bar">
         <ul>
-            <li><a class="active" href="main.html">Rockpprsscr</a></li>
+            <li><a class="active" href="main.html">RPS</a></li>
             <li style="float:right"><a href="login.html">logout</a></li>
         </ul>
     </div>
     <div class="arrange">
         <div style="text-align: justify; text-justify: inter-word;">
             <h1 style="text-align=centre;"> User Profile</h1>
-            <div class="entity">
+            <div>
                 UserName:
                 <?php echo $user1. "<br>"?>
             </div> 
-            <div class="entity">
+            <div  >
                 Name:
                 <?php echo $name1;?>
-            <div class="entity">
+            <div  >
                 Email:
                 <?php echo $email1."<br>"?>
             </div>
-            <div class="entity">
+            <div  >
                 Gender:
                 <?php echo $gender1;?>
             </div>
-            <div class="entity">
+            <div  >
                 Match Played:
                 <?php echo $total1;?>
             </div>
-            <div class="entity">
+            <div  >
                 Match Won:
                 <?php echo $win1;?>
             </div>
-            <div class="entity">
+            <div  >
                 Match loose:
                 <?php echo $loose1;?>
             </div>
-            <div class="entity">
+            <div  >
                 Match Tie:
                 <?php echo $tie1;?>
             </div>
         </div>
+
+        <hr>
         <a href="main.html" style="text-decoration: none;">
         <button type=button style="display: flex;justify-content: center;align-items: center;border: 3px solid green;"> 
         Go Back

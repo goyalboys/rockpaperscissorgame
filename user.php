@@ -1,10 +1,10 @@
 <?php
    session_start();
-    $sql="select username,active from mytable ";
+    $sql="select username,active from user_details ";
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $conn = new mysqli($servername, $username, $password,"mydb");  
+    $conn = new mysqli($servername, $username, $password,"training_game");  
     $result=$conn->query($sql);
     $output=array();
     $str="";
@@ -21,4 +21,5 @@
             $str.="<div style='color:white;'><a href=".'userdetail.php?username='."'".$row['username']."'"."  style='color: white;text-align: center;text-decoration: none;'>". $ac.$row["username"]."</a></div>"."<br>";
         }
     echo $str;
+    echo "-@"."<a href='profile_management.php'>".$_SESSION['useractive']."</a>";
 ?>

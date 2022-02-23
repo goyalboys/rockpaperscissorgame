@@ -4,59 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
     <title>Register</title>    
 </head>
 
 <body >
-    <div class="navbar">
+    <div class="navigation-bar">
         <ul>
             <li>
-                <a class="active" href="main.html">
-                    Rockpprsscr
+                <a href="main.html">
+                    RPS
                 </a>
             </li>
-            <li style="float:right">
+            <li style="float: right;">
                 <a href="login.html">
                     Login
                 </a>
             </li>
         </ul>
     </div>
-    <div class="arrange">
-        <h1>
+
+    <img src="registration-banner.png" height='800px' width='100%' style="position: relative;"">
+
+    <div class="form-content">
+        <h2>
             Register Here
-        </h1>
+        </h2>
         <form name="myForm" method="post" action="databasse.php"  onsubmit="return validateform()">
-            Name:
+            <label>Name</label><br>
             <input type="text" name="name" autocomplete="off">
             <br>
-            Email:
+            <label>Email</label><br>
             <input type="text" name="email"autocomplete="off">
             <br>
-            Username:
-            <input type="text" name="username"autocomplete="off">
+            <label>Username</label><br>
+            <input type="text" name="username"autocomplete="off" class="login__input">
             <br>
-            Password:
+            <label>Password</label><br>
             <input type="password" name="pwd"autocomplete="off">
             <br>
-            Confirm Password:
+            <label>Confirm Password</label><br>
             <input type="password" name="cnfrpwd"autocomplete="off">
             <br>
-            Gender:
+            <label>Gender</label><br>
             <br>
             <input type="radio" name="gender" value="Male">
-            Male 
+            <strong>Male</strong>
             <input type="radio" name="gender" value="Female">
-            Female
+            <strong>Female</strong>
             <input type="radio" name="gender" value="Other"> 
-            Other
+            <strong>Other</strong>
             <input type="submit">
         </form>
         <span id="warning">
 
         </span>
+        <hr>
+        <h3>Already have an account??  <a href="login.html">Login</a></h3>
     </div>
 </body>
 </html>
