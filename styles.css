@@ -1,3 +1,20 @@
+
+@media only screen and (max-width: 700px) {
+  /* For mobile phones: */
+  .form-content {
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgb(139, 132, 132);
+    z-index: 1;
+    opacity: 0.8;
+  }
+  #image-register{
+    display: none;
+  }
+  .changepasswordform-content{
+    width:100%;
+  }
+}
 body{
   background-color: rgb(214, 205, 205);
 }
@@ -53,18 +70,32 @@ a{
   color: aliceblue;
 }
 a:hover{
-  color: #eb3f0b;
+  color: #e98d71;
 }
+@media only screen and (min-width: 700px){
+
 .form-content{
   position: absolute;
-  top:120px;
-  left: 150px;
+  top:100px;
+  left: 500px;
   padding: 40px;
   border: 3px solid #73AD21;
   border-radius: 10px;
   background-color: rgb(139, 132, 132);
   z-index: 1;
   opacity: 0.8;
+}
+.changepasswordform-content{
+  position: fixed;
+  top: 20%;
+  left:30%;
+  padding: 30px;
+width: 400px;
+height: 400px;
+background-color: aliceblue;
+border: 3px solid #73AD21;
+}
+
 }
 label{
   position: relative;
@@ -117,14 +148,15 @@ width: 20px;
 
   .container{
     display:flex;
+    background-color: rgb(255, 255, 255);
   }
   .column1{
-    flex:25%;
+    flex:20%;
     height: auto;
     background: rgb(117, 116, 116);
   }
   .column2{
-    flex:85%;
+    flex:80%;
   }
   .show {
     margin-top: 100px;
@@ -138,14 +170,18 @@ width: 20px;
   text-align: center;
   }
   .dimag{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: x-large;
   }
 
   .column3{
     flex:50%;
+    
   }
-
+#new{
+  text-align: center;
+  font-size: larger;
+}
   .arrange{
     margin: auto;
     text-align: center;
@@ -197,16 +233,7 @@ width: 20px;
   color: red;
   font-style: italic;
 }
-.changepasswordform-content{
-  position: fixed;
-  top: 20%;
-  left:30%;
-  padding: 30px;
-width: 400px;
-height: 400px;
-background-color: aliceblue;
-border: 3px solid #73AD21;
-}
+
 .changepasswordform-content h2{
   text-align: center;
   font-family: 'Courier New', Courier, monospace;

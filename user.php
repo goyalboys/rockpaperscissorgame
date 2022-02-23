@@ -1,5 +1,7 @@
 <?php
    session_start();
+   if(!empty($_SESSION['useractive']))
+    {
     $sql="select username,active from user_details ";
     $servername = "localhost";
     $username = "root";
@@ -22,4 +24,10 @@
         }
     echo $str;
     echo "-@"."<a href='profile_management.php'>".$_SESSION['useractive']."</a>";
+    }
+    else{
+        echo "-1";
+        //header('Location: login.html');
+     //   exit;
+    }
 ?>

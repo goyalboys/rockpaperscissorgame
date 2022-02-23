@@ -32,14 +32,22 @@
         $sql = "UPDATE user_details SET active='$timestamp' WHERE username='$usern'";
         $conn->query($sql);
         echo $conn->error;
+        $conn->close();
         header('Location: main.html');
         exit;
       }
       else
       {
+          $conn->close();
           header('Location: login.html');
            exit;
       }
   }
-  $conn->close();
+  else
+  {
+    $conn->close();
+    header('Location: login.html');
+    exit;
+  }
+  
 ?>

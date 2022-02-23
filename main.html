@@ -4,9 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="images/rps.jpg">
     <link rel="stylesheet" href="styles.css">
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> 
-    <script src="script.js"></script>    
+    <script src="script.js"></script>  
+    <script>
+      
+      $(document).ready(function()
+      {
+          $.ajax({
+              url:"user.php",
+              method:"post",
+              data:{'1':"vineetgoyalhdfbvfbvhbfvjbdjvbhdvbjhfbvhjd"},
+              success:function(data){
+                  console.log(data);
+                  if(data==-"1")
+                  {
+                      window.location.replace('login.html');
+                  }
+                  else
+                  {
+                      const myArray = data.split("-@");
+                      //console.log(data);
+                      $('#new').html(myArray[0]);//for class use.
+                      $('#usernameshow').html(myArray[1]);
+                  }
+              }
+          })
+      })
+
+      
+    </script>  
     <title>game page</title>
 </head>
   <body>
@@ -19,7 +47,7 @@
           </li>
           
           <li style="float:right">
-            <a href="login.html">
+            <a href="logout.php">
               Logout
             </a>
           </li>
@@ -34,7 +62,7 @@
         <h3 style="text-align: center; ">
           USERS
         </h3>
-        <span id="clickme">
+        <span id="clickme1">
           <div id="username" style=" text-align: center; font-family: Arial, Helvetica, sans-serif; text-align: justify; text-justify: inter-word;">
             <div id="new">
             </div>
@@ -48,11 +76,11 @@
               Stone Paper scissor
             </h1>
             <br>
-            <button  type="button" id="stone"><img src="stone.jpg" width="80" height="80">
+            <button  type="button" id="stone"><img src="images/stone.jpg" width="80" height="80">
             </button>
-            <button  type="button" id="paper" ><img src="paper.jpg" width="80" height="80">
+            <button  type="button" id="paper" ><img src="images/paper.jpg" width="80" height="80">
             </button>
-            <button type="button" id="scissor"><img src="scissor.jpg" width="80" height="80">
+            <button type="button" id="scissor"><img src="images/scissor.jpg" width="80" height="80">
             </button>
             <h2 id ="result"></h2>
 

@@ -38,6 +38,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="images/rps.jpg">
     <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
@@ -45,7 +46,7 @@
     <div class="navigation-bar">
         <ul>
             <li><a class="active" href="main.html">RPS</a></li>
-            <li style="float:right"><a href="login.html">logout</a></li>
+            <li style="float:right"><a href="logout.php">logout</a></li>
         </ul>
     </div>
     <div class="arrange">

@@ -41,22 +41,6 @@ function validateforml()
     }
 }
 
-$(document).ready(function()
-{
-    $.ajax({
-        url:"user.php",
-        method:"post",
-        data:{'1':"vineetgoyalhdfbvfbvhbfvjbdjvbhdvbjhfbvhjd"},
-        success:function(data){
-
-            const myArray = data.split("-@");
-            //console.log(data);
-            $('#new').html(myArray[0]);//for class use.
-            $('#usernameshow').html(myArray[1]);
-        }
-    })
-
-})
 $(document).ready(function(){
     $("#stone").click(function()
     {
