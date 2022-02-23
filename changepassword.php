@@ -3,7 +3,6 @@ session_start();
     
     if(empty($_SESSION['useractive']))
     {
-
         header('Location: login.html');
         exit;
 
@@ -19,7 +18,9 @@ session_start();
     <link rel="stylesheet" href="styles.css">
     <title>change password</title>
     <script>
-        function validate_password(){
+
+        function validate_password()
+        {
             let password = document.forms["myForm"]["pwd"].value;
             let cpassword = document.forms["myForm"]["cnfrpwd"].value;
             if(password !=cpassword)
@@ -33,10 +34,11 @@ session_start();
                 return false;
             }
         }
+
     </script>
 </head>
 <body>
-<div class="navigation-bar">
+    <div class="navigation-bar">
         <ul>
             <li>
                 <a href="main.html">
@@ -51,15 +53,17 @@ session_start();
         </ul>
     </div>
 
-<div id="password-change" class='changepasswordform-content'>
-        <h2>Change Password</h2>
-                <form method="post" action="changepassworddatabase.php" name="myform" onsubmit="return validate_password()">
-                    <label>Current password</label><input type="password" name="curr_pwd">
-                    <label>Password</label><input type="password" name='pwd'>
-                    <label>Confirm password</label><input type="password" name='cnfrpwd'>
-                    <hr>
-                    <input type="submit" value="Change password">
-                </form>
-        </div>
+    <div id="password-change" class='changepasswordform-content'>
+        <h2>
+            Change Password
+        </h2>
+        <form method="post" action="changepassworddatabase.php" name="myform" onsubmit="return validate_password()">
+            <label>Current password</label><input type="password" name="curr_pwd">
+            <label>Password</label><input type="password" name='pwd'>
+            <label>Confirm password</label><input type="password" name='cnfrpwd'>
+            <hr>
+            <input type="submit" value="Change password">
+        </form>
+    </div>
 </body>
 </html>

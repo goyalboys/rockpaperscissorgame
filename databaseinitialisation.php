@@ -23,7 +23,9 @@
             gender varchar(10),
             active TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )";
+
         $conn->query($sql);
+
         $sql = "CREATE TABLE IF NOT EXISTS rockpaperscissordashboard(
             total varchar(10) DEFAULT 0,
             id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -33,7 +35,7 @@
             username varchar(30),
             FOREIGN KEY (username) REFERENCES user_details (username) ON DELETE CASCADE
             )";
-            $conn->query($sql);
+        $conn->query($sql);
         echo $conn->error;
         $conn->close();
     ?>

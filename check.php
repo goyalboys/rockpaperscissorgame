@@ -8,14 +8,17 @@
   {
       $user=htmlspecialchars($_REQUEST['username']);
       $pwd=htmlspecialchars($_REQUEST['pswd']);
+
       if (!empty($_REQUEST['remember']))
       {
         setcookie($user, $pwd, time() + (86400 * 30), "/");
       }
+      
       $sql="select password from user_details where username='$user'";
       $result= $conn->query($sql);
       $output='';
       echo $conn->error;
+
       while($row = $result->fetch_assoc()) 
         $output=$row["password"];
       
@@ -38,9 +41,9 @@
       }
       else
       {
-          $conn->close();
-          header('Location: login.html');
-           exit;
+        $conn->close();
+        header('Location: login.html');
+          exit;
       }
   }
   else

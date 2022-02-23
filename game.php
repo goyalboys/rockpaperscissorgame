@@ -1,10 +1,9 @@
 <?php
+
     session_start();
-    
-    
+
     if(!empty($_SESSION['useractive']))
     {
-
         $tie=0;
         $loose=0;
         $win=0;
@@ -99,9 +98,14 @@
             $conn->query($sql);
             echo $conn->error;   
         }
+        
     }
-    else{
+    else
+    {
         header('Location: login.html');
         exit();
     }  
+
+
+
 ?>
