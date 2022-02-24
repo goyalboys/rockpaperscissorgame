@@ -9,6 +9,21 @@
       $user=htmlspecialchars($_REQUEST['username']);
       $pwd=htmlspecialchars($_REQUEST['pswd']);
 
+
+      if($user=="")
+      {
+        echo"Alert: fill the username field";
+        exit();
+        header('Location: login.html');
+      }
+      
+      if($pwd=="")
+      {
+        echo "alert: fill the password field";
+        exit();
+        header('Location: login.html');
+      }
+
       if (!empty($_REQUEST['remember']))
       {
         setcookie($user, $pwd, time() + (86400 * 30), "/");

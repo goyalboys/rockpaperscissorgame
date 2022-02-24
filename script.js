@@ -1,4 +1,4 @@
-function validateform()
+function validateform_register()
 {
     let name = document.forms["myForm"]["name"].value;
     let username = document.forms["myForm"]["username"].value;
@@ -50,19 +50,24 @@ $(document).ready(function(){
             data:{'choice':"1"},
             success:function(data)
             {
-                console.log(data);
-                //let x,y,z=data.split("-");
-                const myArray = data.split("-");
-                //console.log(myArray);
-                $('#result').html(myArray[0]);
-                $('#computer').html(myArray[1]);//for class use.
-                $('#user').html(myArray[2]);
-                $('#uloose').html(myArray[6]);
-                $('#cloose').html(myArray[5]);
-                $('#cwin').html(myArray[6]);
-                $('#uwin').html(myArray[5]);
-                $('.total').html(myArray[3]);
-                $('.tie').html(myArray[4]);
+                if(data=="-1"){
+                    window.location.replace('login.html');
+                }
+                else{
+                    console.log(data);
+                    //let x,y,z=data.split("-");
+                    const myArray = data.split("-");
+                    //console.log(myArray);
+                    $('#result').html(myArray[0]);
+                    $('#computer').html(myArray[1]);//for class use.
+                    $('#user').html(myArray[2]);
+                    $('#uloose').html(myArray[6]);
+                    $('#cloose').html(myArray[5]);
+                    $('#cwin').html(myArray[6]);
+                    $('#uwin').html(myArray[5]);
+                    $('.total').html(myArray[3]);
+                    $('.tie').html(myArray[4]);
+                }
 
             }
         })
@@ -81,18 +86,24 @@ $(document).ready(function(){
             data:{'choice':"2"},
             success:function(data)
             {
-                const myArray = data.split("-");
-                //console.log(myArray);
-                $('#result').html(myArray[0]);
-                $('#computer').html(myArray[1]);//for class use.
-                $('#user').html(myArray[2]);
+                if(data=="-1"){
+                    window.location.replace('login.html');
+                }
+                else
+                {
+                    const myArray = data.split("-");
+                    //console.log(myArray);
+                    $('#result').html(myArray[0]);
+                    $('#computer').html(myArray[1]);//for class use.
+                    $('#user').html(myArray[2]);
 
-                $('#uloose').html(myArray[6]);
-                $('#cloose').html(myArray[5]);
-                $('#cwin').html(myArray[6]);
-                $('#uwin').html(myArray[5]);
-                $('.total').html(myArray[3]);
-                $('.tie').html(myArray[4]);
+                    $('#uloose').html(myArray[6]);
+                    $('#cloose').html(myArray[5]);
+                    $('#cwin').html(myArray[6]);
+                    $('#uwin').html(myArray[5]);
+                    $('.total').html(myArray[3]);
+                    $('.tie').html(myArray[4]);
+                }
             }
         })
  
@@ -109,17 +120,24 @@ $(document).ready(function(){
             data:{'choice':"3"},
             success:function(data)
             {
-                const myArray = data.split("-");
-                console.log(myArray[3]);
-                $('#result').html(myArray[0]);
-                $('#computer').html(myArray[1]);//for class use.
-                $('#user').html(myArray[2]);
-                $('#uloose').html(myArray[6]);
-                $('#cloose').html(myArray[5]);
-                $('#cwin').html(myArray[6]);
-                $('#uwin').html(myArray[5]);
-                $('.total').html(myArray[3]);
-                $('.tie').html(myArray[4]);
+                if(data=="-1"){
+                    window.location.replace('login.html');
+                }
+                else
+                {
+
+                    const myArray = data.split("-");
+                    console.log(myArray[3]);
+                    $('#result').html(myArray[0]);
+                    $('#computer').html(myArray[1]);//for class use.
+                    $('#user').html(myArray[2]);
+                    $('#uloose').html(myArray[6]);
+                    $('#cloose').html(myArray[5]);
+                    $('#cwin').html(myArray[6]);
+                    $('#uwin').html(myArray[5]);
+                    $('.total').html(myArray[3]);
+                    $('.tie').html(myArray[4]);
+                }
             }
         })
  

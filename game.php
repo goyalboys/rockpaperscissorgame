@@ -75,7 +75,7 @@
         $password = "";
         $conn = new mysqli($servername, $username, $password,"training_game");  
         echo $_SESSION['total'].'-'. $_SESSION['tie'].'-'. $_SESSION['win'].'-'.$_SESSION['loose'];
-        $sql="select total,win,loose,tie from rockpaperscissordashboard where username='$usern'";
+        $sql="select total,win,loose,tie from rps_scoreboard where username='$usern'";
         $out=$conn->query($sql);
         var_dump($out);
         echo $conn->error;
@@ -92,7 +92,7 @@
             $totalo+=$total;
             $tieo+=$tie;
             $looseo+=$loose;
-            $sql = "UPDATE rockpaperscissordashboard SET win='$wino', total='$totalo',loose='$looseo',tie='$tieo' WHERE username='$usern'";
+            $sql = "UPDATE rps_scoreboard SET win='$wino', total='$totalo',loose='$looseo',tie='$tieo' WHERE username='$usern'";
             $conn->query($sql);
             $sql = "UPDATE user_details SET active='$timestamp' WHERE username='$usern'";
             $conn->query($sql);
@@ -102,8 +102,7 @@
     }
     else
     {
-        header('Location: login.html');
-        exit();
+        echo "-1";
     }  
 
 

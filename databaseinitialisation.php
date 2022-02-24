@@ -26,7 +26,7 @@
 
         $conn->query($sql);
 
-        $sql = "CREATE TABLE IF NOT EXISTS rockpaperscissordashboard(
+        $sql = "CREATE TABLE IF NOT EXISTS rps_scoreboard(
             total varchar(10) DEFAULT 0,
             id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
             win varchar(10) DEFAULT 0,

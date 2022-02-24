@@ -8,6 +8,55 @@
         $conn = new mysqli($servername, $username, $password,"training_game");          
         if ($_SERVER['REQUEST_METHOD']=='POST')
         {
+            
+
+            $flag=0;
+
+            if(htmlspecialchars($_REQUEST['pwd']!=htmlspecialchars($_REQUEST['cnfrpwd'])))
+            {
+              $flag=1;
+              echo "alert :  password is not match";
+            }
+
+            if(htmlspecialchars($_REQUEST['pwd']==""||htmlspecialchars($_REQUEST['cnfrpwd']=="")))
+            {
+              echo "alert :  password is not entered inside the field";
+              $flag=1;
+            }
+            /*$mailformat = "/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/";
+            if(!email.match(mailformat))
+            {
+                document.getElementById('warning').innerHTML="Email is not valid";
+                return false;
+            }*/
+            if (htmlspecialchars($_REQUEST['gender'])=="")
+            {
+              echo "alert :  gender is not entered inside the field";
+              $flag=1;
+            }
+
+            if (htmlspecialchars($_REQUEST['username'])=="")
+            {
+              echo "alert :  username is not entered inside the field";
+              
+              $flag=1;
+            }
+            
+
+            if (htmlspecialchars($_REQUEST['name'])=="")
+            {
+              echo "alert :  Name is not entered inside the field";
+              $flag=1;
+            }
+            if($flag==1)
+            { 
+              exit();
+              header('Location: index.html');
+            }
+         
+
+
+
             $usr= htmlspecialchars($_REQUEST['username']);
             $sql="select * from user_details where username ='$usr'";
             $out=$conn->query($sql);
@@ -21,7 +70,7 @@
                   ',"'.htmlspecialchars($_REQUEST['email']).'"'.','.'"'.htmlspecialchars($hashed_password).'"'. ',"'.htmlspecialchars($_REQUEST['gender']).'"'.")";
                 $conn->query($sql);
                 $u=htmlspecialchars($_REQUEST['username']);
-                $sql="INSERT INTO rockpaperscissordashboard (username)VALUE('$u')";
+                $sql="INSERT INTO rps_scoreboard (username)VALUE('$u')";
                 $conn->query($sql);
                 echo $conn->error;
                 header('Location: login.html');
@@ -32,5 +81,8 @@
               echo $conn->error;
               echo "alert :  username is already exit";
             }
+        }
+        else{
+          header("location:login.html");
         }
     ?>

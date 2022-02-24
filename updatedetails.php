@@ -1,5 +1,7 @@
 <?php
   session_start();
+  if(!empty($_SESSION['useractive']))
+  {
   $servername = "localhost";
   $username = "root";
   $password = "";
@@ -15,7 +17,12 @@
         echo $conn->error;
         header('Location: profile_management.php');
         exit;
-}
+  }
   $conn->close();
-
+  }
+  else
+  {
+    header("location:login.html");
+    exit();
+  }
 ?>

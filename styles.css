@@ -1,10 +1,10 @@
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 500px) {
   /* For mobile phones: */
   .form-content {
     width: 100%;
     border-radius: 10px;
-    background-color: rgb(139, 132, 132);
+    background-color: rgb(85, 88, 90);
     z-index: 1;
     opacity: 0.8;
   }
@@ -14,7 +14,65 @@
   .changepasswordform-content{
     width:100%;
   }
+  .arrange{
+    margin: auto;
+    text-align: center;
+    border: 10px solid rgb(206, 206, 179);
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 3px 3px 5px 7px rgb(18, 18, 19);
+    background-color: rgb(155, 182, 182);
+  }
 }
+@media only screen and (min-width: 500px){
+  .form-content{
+    position: absolute;
+    width:auto;
+    top:80px;
+    left: calc(18%);
+    padding: 40px;
+
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    z-index: 1;
+    opacity: 0.8;
+  }
+}
+  
+@media only screen and (min-width: 700px){
+
+  .form-content{
+    position: absolute;
+    width:350px;
+    top:80px;
+    left: calc(40%);
+    padding: 40px;
+    border-radius: 10px;
+    background-color: rgb(187, 202, 192);
+    z-index: 1;
+    box-shadow: 3px 3px 5px 7px rgb(18, 18, 19);
+  }
+  .changepasswordform-content{
+    position: fixed;
+    top: 20%;
+    left:35%;
+    padding: 30px;
+    width: 400px;
+    height: 400px;
+    background-color: aliceblue;
+  }
+  .arrange{
+    margin: auto;
+    text-align: center;
+    width: 500px;
+    border: 10px solid rgb(206, 206, 179);
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 3px 3px 5px 7px rgb(18, 18, 19);
+    background-color: rgb(155, 182, 182);
+  }
+}
+
 body{
   background-color: rgb(214, 205, 205);
 }
@@ -73,31 +131,8 @@ a{
 a:hover{
   color: #e98d71;
 }
-@media only screen and (min-width: 700px){
 
-.form-content{
-  position: absolute;
-  top:100px;
-  left: 500px;
-  padding: 40px;
-  border: 3px solid #73AD21;
-  border-radius: 10px;
-  background-color: rgb(139, 132, 132);
-  z-index: 1;
-  opacity: 0.8;
-}
-.changepasswordform-content{
-  position: fixed;
-  top: 20%;
-  left:30%;
-  padding: 30px;
-  width: 400px;
-  height: 400px;
-  background-color: aliceblue;
-  border: 3px solid #73AD21;
-}
 
-}
 label{
   position: relative;
   text-align: center;
@@ -162,14 +197,14 @@ label{
 }
 .show {
   margin-top: 100px;
-margin: auto;
-width: auto;
-height: 1000px;
-padding-top: 5%;
-border: 3px solid #73AD21;
-font:1000;
-font-size: larger;
-text-align: center;
+  margin: auto;
+  width: auto;
+  height: 1000px;
+  padding-top: 5%;
+  border: 3px solid #fefffd;
+  font:1000;
+  font-size: larger;
+  text-align: center;
 }
 .dimag{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -184,16 +219,7 @@ text-align: center;
   text-align: center;
   font-size: larger;
 }
-.arrange{
-  margin: auto;
-  text-align: center;
-  width: 500px;
-  border: 10px solid rgb(206, 206, 179);
-  padding: 20px;
-  margin-top: 20px;
-  box-shadow: 3px 3px 5px 7px rgb(18, 18, 19);
-  background-color: rgb(155, 182, 182);
-}
+
 .arrange div{
   position: relative;
   width: 100%;
@@ -211,13 +237,13 @@ text-align: center;
 #clickme2{
   width: 100px;
   height: 40px;
-  background-color: #44d157;
+  background-color: #b2f5bb;
 }
 #change_password{
   float: right;
   width: 120px;
   height: 40px;
-  background-color: #44d157;
+  background-color: #a7daae;
 }
 #change_password:hover{
   box-shadow:3px 3px 3px 5px #d0eed4;

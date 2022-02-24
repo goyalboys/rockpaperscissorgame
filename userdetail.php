@@ -1,35 +1,44 @@
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $conn = new mysqli($servername, $username, $password,"training_game");  
-    $user=$_REQUEST['username'];
-    $sql="select username,name,email,gender from user_details where username=".$user;
-    $out=$conn->query($sql);
-    echo $conn->error;
-    $name1='';
-    $user1='';
-    $email1='';
-    $gender1='';
-    $loose1='';
-    $tie1='';
-    $total1='';
-    $win1='';
-    while($row = $out->fetch_assoc()) 
-    {
-        $user1=$row['username'];
-        $name1 =$row['name'];
-        $email1=$row['email'];
-        $gender1= $row['gender'];
+    session_start();
+    if(!empty($_SESSION['useractive']))
+     {
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $conn = new mysqli($servername, $username, $password,"training_game");  
+        $user=$_REQUEST['username'];
+        $sql="select username,name,email,gender from user_details where username=".$user;
+        $out=$conn->query($sql);
+        echo $conn->error;
+        $name1='';
+        $user1='';
+        $email1='';
+        $gender1='';
+        $loose1='';
+        $tie1='';
+        $total1='';
+        $win1='';
+        while($row = $out->fetch_assoc()) 
+        {
+            $user1=$row['username'];
+            $name1 =$row['name'];
+            $email1=$row['email'];
+            $gender1= $row['gender'];
+        }
+        $sql="select  loose,win,tie,total from rps_scoreboard where username=".$user;
+        $out=$conn->query($sql);
+        while($row = $out->fetch_assoc()) 
+        {
+            $loose1=$row['loose'];
+            $win1=$row['win'];
+            $total1=$row['total'];
+            $tie1=$row['tie'];
+        }
     }
-    $sql="select  loose,win,tie,total from rockpaperscissordashboard where username=".$user;
-    $out=$conn->query($sql);
-    while($row = $out->fetch_assoc()) 
-    {
-        $loose1=$row['loose'];
-        $win1=$row['win'];
-        $total1=$row['total'];
-        $tie1=$row['tie'];
+    else{
+        
+        header('Location: login.html');
+        exit();
     }
 ?>
 <!DOCTYPE html>

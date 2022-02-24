@@ -27,7 +27,6 @@
     }
     else{
         echo "-1";
-        //header('Location: login.html');
-     //   exit;
+           
     }
 ?>
