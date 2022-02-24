@@ -31,17 +31,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Document</title>
-    <script src="script.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="script.js"></script>
+ 
     <script>
         $(document).ready(function()
         {
-            $("#clickme").click(function(){
+            $("#clickme2").click(function(){
                 
                 $('#form').removeClass('hide').addClass('show');
                 $('#data').removeClass('show').addClass('hide');
                 $("input[name=gender][value='<?php echo $gender1;?>']").prop('checked', true);
-                $('#clickme').hide();
+                $('#clickme2').hide();
             })
             
         } )
@@ -63,7 +64,7 @@
                 <li style="float:right"><a href="logout.php">Logout</a></li>
             </ul>
         </div>
-        <button id="clickme"> 
+        <button id="clickme2"> 
                 Edit Profile
         </button>
         <a href="changepassword.php">

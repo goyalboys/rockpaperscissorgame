@@ -46,7 +46,7 @@
     <div class="navigation-bar">
         <ul>
             <li><a class="active" href="main.html">RPS</a></li>
-            <li style="float:right"><a href="logout.php">logout</a></li>
+            <li style="float:right"><a href="logout.php">Logout</a></li>
         </ul>
     </div>
     <div class="arrange">
