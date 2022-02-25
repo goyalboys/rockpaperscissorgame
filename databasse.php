@@ -23,12 +23,21 @@
               echo "alert :  password is not entered inside the field";
               $flag=1;
             }
-            /*$mailformat = "/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/";
-            if(!email.match(mailformat))
+            $mailformat = "/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/";
+            $mediumPassword = '((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))';
+
+            if(!preg_match($mailformat,htmlspecialchars($_REQUEST['email'])))
             {
-                document.getElementById('warning').innerHTML="Email is not valid";
-                return false;
-            }*/
+               echo "alert email is not valid";
+               $flag=1;
+            }
+
+            if(!preg_match($mailformat,htmlspecialchars($_REQUEST['email'])))
+            {
+              echo "alert password is not strong";
+                $flag=1;
+            }
+
             if (htmlspecialchars($_REQUEST['gender'])=="")
             {
               echo "alert :  gender is not entered inside the field";

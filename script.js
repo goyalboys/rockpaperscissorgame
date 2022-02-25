@@ -6,6 +6,8 @@ function validateform_register()
     let password = document.forms["myForm"]["pwd"].value;
     let cpassword = document.forms["myForm"]["cnfrpwd"].value;
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    let mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))');
+
     if(!email.match(mailformat))
     {
         document.getElementById('warning').innerHTML="Email is not valid";
@@ -24,6 +26,11 @@ function validateform_register()
     if(password=="")
     {
         document.getElementById('warning').innerHTML="please enter password";
+        return false;
+    }
+    if(!password.match(mediumPassword))
+    {
+        document.getElementById('warning').innerHTML="Password is not strong";
         return false;
     }
 }
