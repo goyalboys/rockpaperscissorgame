@@ -18,7 +18,7 @@
                 $output=$row["password"];
             if (password_verify($pwd, $output))
             {
-                $pwd=htmlspecialchars($_REQUEST['curr_pwd']);
+                $pwd=htmlspecialchars($_REQUEST['pwd']);
                 date_default_timezone_set('Asia/Calcutta'); 
                 $timestamp = date('Y-m-d H:i:s');
                 $hashed_password = password_hash(htmlspecialchars($_REQUEST['pwd']), PASSWORD_DEFAULT);
