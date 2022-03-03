@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>database</title>
-</head>
-<body>
     <?php
         $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $conn = new mysqli($servername, $username, $password);
+        $root_user = "root";
+        $root_password = "";
+        $conn = new mysqli($servername, $root_user, $root_password);
         $sql = "CREATE DATABASE IF NOT EXISTS training_game";
         $conn->query($sql);
-        $conn = new mysqli($servername, $username, $password,"training_game"); 
+        $conn = new mysqli($servername, $root_user, $root_password,"training_game"); 
         $sql = "CREATE TABLE IF NOT EXISTS user_details(
             name VARCHAR(30) NOT NULL,
             username VARCHAR(30) NOT NULL PRIMARY KEY,
@@ -39,5 +30,3 @@
         echo $conn->error;
         $conn->close();
     ?>
-</body>
-</html>

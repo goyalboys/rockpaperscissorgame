@@ -150,8 +150,6 @@ a{
 a:hover{
   color: #e98d71;
 }
-
-
 label{
   position: relative;
   text-align: center;
@@ -165,7 +163,7 @@ label{
 }
 
 .form-content h3 a{
-  color: #111;
+  color: rgb(176, 128, 231);
 }
 .form-content h3 a:hover{
   color: rgb(223, 19, 19);
@@ -216,6 +214,7 @@ label{
 .column1{
   flex:20%;
   height: auto;
+  
   background: rgb(117, 116, 116);
 }
 .column2{
@@ -242,8 +241,9 @@ label{
   
 }
 #new{
-  text-align: center;
   font-size: larger;
+  text-align: justify; 
+  text-justify: inter-word;
 }
 
 .arrange div{

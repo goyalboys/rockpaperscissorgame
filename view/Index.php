@@ -1,0 +1,70 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../images/rps.jpg">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../script.js"></script>
+    <title>Register</title>    
+</head>
+<body >
+    <div class="navigation-bar">
+        <ul>
+            <li>
+                <a href="Main.php">
+                    RPS
+                </a>
+            </li>
+            <li style="float: right;">
+                <a href="Login.php">
+                    Login
+                </a>
+            </li>
+        </ul>
+    </div>
+    <img src="../images/registration-banner.png" height='800px' width='100%' style="position: relative;" id="image-register"">
+
+    <div class="form-content">
+        <h2>
+            Register Here
+        </h2>
+        <form name="register_form" method="post" action="../controller/Register_Verification.php"  onsubmit="return validateform_register()">
+            <label>Name</label><br>
+            <input type="text" name="name" autocomplete="off">
+            <br>
+            <label>Email</label><br>
+            <input type="text" name="email"autocomplete="off">
+            <br>
+            <label>Username</label><br>
+            <input type="text" name="username"autocomplete="off" class="login__input">
+            <br>
+            <label>Password</label><br>
+            <input type="password" name="password"autocomplete="off">
+            <br>
+            <label>Confirm Password</label><br>
+            <input type="password" name="confirm_password"autocomplete="off">
+            <br>
+            <label>Gender</label><br>
+            <br>
+            <input type="radio" name="gender" value="Male" checked>
+            <strong>Male</strong>
+            <input type="radio" name="gender" value="Female">
+            <strong>Female</strong>
+            <input type="radio" name="gender" value="Other"> 
+            <strong>Other</strong>
+            <input type="submit">
+        </form>
+        <span id="warning">
+            
+
+        </span>
+        <hr>
+        <h3>Already have an account??  <a href="Login.php">Login</a></h3>
+    </div>
+</body>
+</html>
