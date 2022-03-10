@@ -50,7 +50,7 @@ function validateform_register()
             type: 'post',
             
             data: {
-                user: username,type:'register_page'
+                username: username,type:'register_page'
             },
             success: function(data)
                 {

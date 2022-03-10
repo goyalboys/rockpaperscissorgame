@@ -6,11 +6,10 @@ include '../model/User_Details_Table.php';
 
 if($_REQUEST['type']=='register_page')
 {
-    $username=$_REQUEST['username'];
-    if (check_user_exist($username))
-    {
-        echo 'username is already exists';
-    }
+        if (check_user_exist($_REQUEST['username']))
+        {
+            echo 'username is already exists';
+        }
 }
 else
 {

@@ -33,10 +33,14 @@
             $conn = new mysqli($GLOBALS['servername'], $GLOBALS['root_user'], $GLOBALS['root_password'],"training_game"); 
 
             try{
+                $sql="start Transaction";
+                $conn->query($sql);
                 $sql="INSERT INTO user_details (name,username,email,password,gender)VALUES('$name','$username','$email','$password','$gender')";
                 $conn->query($sql);
                 echo $conn->error;
                 $sql="INSERT INTO rps_scoreboard (username)VALUE('$username')";
+                $conn->query($sql);
+                $sql="commit";
                 $conn->query($sql);
                 echo $conn->error;
             }
@@ -64,9 +68,6 @@
             finally{
                 $conn->close();
             }
-           
-            
- 
         }
 
 

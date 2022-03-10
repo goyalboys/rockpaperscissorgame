@@ -56,6 +56,8 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
             $flag=1;
         }
 
+        
+
         if( check_user_exist( htmlspecialchars( $_REQUEST['username'] ) ) )
         {
             echo "<script>alert('username is already exits') </script>";

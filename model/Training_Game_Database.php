@@ -27,6 +27,13 @@
             FOREIGN KEY (username) REFERENCES user_details (username) ON DELETE CASCADE
             )";
         $conn->query($sql);
+
+        echo $conn->error;
+        $sql='ALTER TABLE user_details ENGINE = InnoDB';
+        $conn->query($sql);
+        echo $conn->error;
+        $sql='ALTER TABLE rps_scoreboard ENGINE = InnoDB';
+        $conn->query($sql);
         echo $conn->error;
         $conn->close();
     ?>
