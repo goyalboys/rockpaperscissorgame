@@ -8,7 +8,7 @@ include '../model/User_Details_Table.php';
 if ($_SERVER['REQUEST_METHOD']=='POST')
     {  
         $flag=0;
-        start_transaction($conn);
+        
          try
          {
             if(htmlspecialchars($_REQUEST['password'])!=htmlspecialchars($_REQUEST['confirm_password']))
@@ -73,29 +73,40 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
                 $flag=1;
                 throw new Exception("user is already exits");
             }
-            $user= htmlspecialchars($_REQUEST['username']);
-            $hashed_password = password_hash(htmlspecialchars($_REQUEST['password']), PASSWORD_DEFAULT);
-            $email=htmlspecialchars($_REQUEST['email']);
-            $name=htmlspecialchars($_REQUEST['name']);
-            $gender=htmlspecialchars($_REQUEST['gender']);
-            
-            insert_data($conn,$name,$user,$email,$hashed_password,$gender);        
+
+
         }
         catch(exception $e)
         {
-            rollback_transaction($conn);
+
             if($flag==1)
             { 
                 header('Location: ../view/Index.php');
                 exit();
             }
-            
+
         }
-        finally
-        {
+
+        $user= htmlspecialchars($_REQUEST['username']);
+        $hashed_password = password_hash(htmlspecialchars($_REQUEST['password']), PASSWORD_DEFAULT);
+        $email=htmlspecialchars($_REQUEST['email']);
+        $name=htmlspecialchars($_REQUEST['name']);
+        $gender=htmlspecialchars($_REQUEST['gender']);
+
+        start_transaction($conn);
+        try{
+            insert_data($conn,$name,$user,$email,$hashed_password,$gender);  
+            throw new Exception();
+        }
+        catch(Exception $e){
+            rollback_transaction($conn);
+
+        }
+        finally{
             commit_transaction($conn);
-            header('Location: ../view/login.php');
-        }    
+        }
+        
+        header('Location: ../view/login.php'); 
     }
     else{
         header('Location: ../view/login.php');
