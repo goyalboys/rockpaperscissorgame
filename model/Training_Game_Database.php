@@ -35,5 +35,5 @@
         $sql='ALTER TABLE rps_scoreboard ENGINE = InnoDB';
         $conn->query($sql);
         echo $conn->error;
-        $conn->close();
+        //$conn->close();
     ?>
